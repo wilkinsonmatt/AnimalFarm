@@ -3,12 +3,16 @@
 }
 
 @using AnimalFarm.Models;
-@model AnimalFarm.Models.Animal;
+@model AnimalFarm.Models.Animal
 
-<h4>Adopt a new friend (add animal)</h4>
+<h2>Edit</h2>
+
+<h4>Edit this task: @Html.DisplayFor(model => model.AnimalName)</h4>
 
 @using (Html.BeginForm())
 {
+    @Html.HiddenFor(model => model.AnimalId)
+
     @Html.LabelFor(model => model.AnimalName)
     @Html.TextBoxFor(model => model.AnimalName)
 
@@ -21,6 +25,7 @@
     <!-- @Html.LabelFor(model => model.BirthDate)
     @Html.TextBoxFor(model => model.BirthDate) -->
 
-    <input type="submit" value="Add new animal" class="btn btn-default" />
+    <input type="submit" value="Save" />
 }
-<p>@Html.ActionLink("Show all animals", "Index")</p>
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

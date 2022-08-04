@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@using AnimalFarm.Models;
+@model AnimalFarm.Models.Animal
+
+<h2>Add a Trainer</h2>
+
+<h4>Add a Trainer to this Animal: @Html.DisplayFor(model => model.AnimalName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.AnimalId)
+
+    @Html.Label("Select Trainer")
+    @Html.DropDownList("TrainerId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

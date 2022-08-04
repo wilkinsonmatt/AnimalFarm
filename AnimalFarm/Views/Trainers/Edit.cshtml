@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@using AnimalFarm.Models;
+@model AnimalFarm.Models.Trainer
+
+<h2>Edit</h2>
+
+<h4>Edit this task: @Html.DisplayFor(model => model.TrainerName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.TrainerId)
+
+    @Html.Label("Name:")
+    <br>
+    @Html.TextBoxFor(model => model.TrainerName)
+    <br>
+    @Html.Label("Specialty:")
+    <br>
+    @Html.TextBoxFor(model => model.TrainerSpecialty)
+    <br>
+    @Html.Label("Animals Trainer Works With:")
+    <br>
+    @Html.DropDownList("AnimalId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

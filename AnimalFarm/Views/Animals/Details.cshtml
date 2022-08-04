@@ -6,11 +6,12 @@
 
 <h2>Animal Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.AnimalName): @Html.DisplayFor(model => model.AnimalName)</h3>
+<h3>@Html.Label("Animal Name: ") @Html.DisplayFor(model => model.AnimalName)</h3>
 
 @if(@Model.JoinEntities.Count == 0)
 {
   <p>This animal does not belong to any trainers</p>
+  <p>Animal Type: @Html.DisplayFor(model => model.AnimalType)</p>
 }
 else
 {
@@ -20,9 +21,11 @@ else
   {
     <li>@join.Trainer.TrainerName</li>
   }
+  <p>Animal Type: @Html.DisplayFor(model => model.AnimalType)</p>
   </ul>
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit Animal", "Edit", new { id = Model.AnimalId })</p>
 <p>@Html.ActionLink("Delete Animal", "Delete", new { id = Model.AnimalId })</p>
+<p>@Html.ActionLink("Add a Trainer", "AddTrainer", new { id = Model.AnimalId })</p>

@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AnimalFarm.Models.Trainer
+
+<h4>Add a new Trainer</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.TrainerName)
+  @Html.TextBoxFor(model => model.TrainerName)
+
+  @Html.LabelFor(model => model.TrainerSpecialty)
+  @Html.TextBoxFor(model => model.TrainerSpecialty)
+
+  <input type="submit" value="Add New Trainer" />
+}
+<p>@Html.ActionLink("Show All Trainers", "Index")</p>

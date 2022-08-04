@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AnimalFarm.Models.Trainer
+
+<h2>Trainer Details</h2>
+<hr />
+<h3>@Html.Label("Trainer Name: ") @Html.DisplayFor(model => model.TrainerName)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>placeholder text</p>
+}
+else
+{
+  <h4>Types of Animals this Trainer works with:</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li>@join.Animal.AnimalType</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to list of Trainer", "Index")</p>
+<p>@Html.ActionLink("Edit Trainer", "Edit", new { id = Model.TrainerId })</p>
+<p>@Html.ActionLink("Delete Trainer", "Delete", new { id = Model.TrainerId })</p>
+<p>@Html.ActionLink("Add a Trainer", "AddTrainer", new { id = Model.TrainerId })</p>
