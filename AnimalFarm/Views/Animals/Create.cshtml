@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AnimalFarm.Models.Animal
+
+<h4>Adopt a new friend (add animal)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.AnimalName)
+    @Html.TextBoxFor(model => model.AnimalName)
+
+    @Html.Label("Select trainer")
+    @Html.DropDownList("TrainerId")
+
+    <input type="submit" value="Add new animal" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all animals", "Index")</p>

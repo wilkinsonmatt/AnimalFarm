@@ -12,7 +12,7 @@ namespace AnimalFarm.Models
         public int AnimalId { get; set; }
         public string AnimalType { get; set; }
         public string AnimalName { get; set; }
-        public Date AdminDate { get; set; }
-        public virtual ICollection<TrainerAnimal> JoinEntities { get;}
+        public DateTime BirthDate { get; set; }
+        public virtual ICollection<TrainerAnimal> JoinEntities { get; }
     }
 }

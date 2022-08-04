@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@using AnimalFarm.Models;
+@model List<AnimalFarm.Models.Animal>;
+
+<h3> List of Animals: </h3>
+<br>
+
+@if (@Model.Count == 0)
+{
+  <h4> No Animals </h4>
+}
+
+@foreach (Animal animal in Model)
+{
+  <li>@Html.ActionLink($"{animal.AnimalName}", "Details", new { id = animal.AnimalId })</li>
+  <br>
+}
+
+
+
+<p>@Html.ActionLink("Home page", "Index", "Home")</p>
